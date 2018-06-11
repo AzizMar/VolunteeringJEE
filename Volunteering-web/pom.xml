@@ -24,11 +24,10 @@
     <artifactId>primefaces</artifactId>
     <version>6.2</version>
 </dependency>
-
 <!-- https://mvnrepository.com/artifact/org.primefaces.themes/ui-lightness -->
 <dependency>
     <groupId>org.primefaces.themes</groupId>
-    <artifactId>ui-lightness</artifactId>
+    <artifactId>bootstrap</artifactId>
     <version>1.0.10</version>
 </dependency>
 
