@@ -3,7 +3,8 @@
 	<persistence-unit name="Volunteering-ejb">
 		<jta-data-source>java:jboss/datasources/MySQLDS</jta-data-source>
 		<properties>
-			<property name="hibernate.hbm2ddl.auto" value="create" />
-			<property name="hibernate.show_sql" value="true" /> 		</properties>
+			<!-- <property name="hibernate.hbm2ddl.auto" value="create" /> -->
+			<property name="hibernate.show_sql" value="true" /> 		
+			</properties>
 	</persistence-unit>
 </persistence>

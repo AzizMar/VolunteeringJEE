@@ -7,5 +7,99 @@
 <h:head></h:head> 
 <body> 
 <h:outputText value="sssssssssssSSSSSSSSSSSS" />
+	
+	
+		
+
+	
+	<!-- HEADER HERE -->
+	<div class="ui-g">
+	<div class="ui-g-12 ui-md-12 ui-g-nopad">
+	<h:form>  
+    <p:growl id="messages"/>
+ 
+    <p:menubar>
+        <p:submenu label="File" icon="ui-icon-document">
+            <p:submenu label="New" icon="ui-icon-contact">
+                <p:menuitem value="Project" url="#" />
+                <p:menuitem value="Other" url="#" />
+            </p:submenu>
+            <p:menuitem value="Open" url="#" />
+            <p:separator />
+            <p:menuitem value="Quit" url="#" />
+        </p:submenu>
+ 
+        <p:submenu label="Edit" icon="ui-icon-pencil">
+            <p:menuitem value="Undo" url="#" icon="ui-icon-arrowreturnthick-1-w" />
+            <p:menuitem value="Redo" url="#" icon="ui-icon-arrowreturnthick-1-e" />
+        </p:submenu>
+ 
+        <p:submenu label="Help" icon="ui-icon-help">
+            <p:menuitem value="Contents" url="#" />
+            <p:submenu label="Search" icon="ui-icon-search">
+                <p:submenu label="Text">
+                    <p:menuitem value="Workspace" url="#" />
+                </p:submenu>
+                <p:menuitem value="File" url="#" />
+            </p:submenu>
+        </p:submenu>
+ 
+        <p:submenu label="Actions" icon="ui-icon-gear">
+            <p:submenu label="Ajax" icon="ui-icon-refresh">
+                <p:menuitem value="Save" actionListener="#{menuView.save}" icon="ui-icon-disk" update="messages"/>
+                <p:menuitem value="Update" actionListener="#{menuView.update}" icon="ui-icon-arrowrefresh-1-w" update="messages"/>
+            </p:submenu>
+            <p:submenu label="Non-Ajax" icon="ui-icon-newwin">
+                <p:menuitem value="Delete" actionListener="#{menuView.delete}" icon="ui-icon-close" update="messages" ajax="false"/>
+            </p:submenu>
+        </p:submenu>
+ 
+        <p:menuitem value="Quit" url="http://www.primefaces.org" icon="ui-icon-close" />
+ 
+        <f:facet name="options">
+            <p:inputText style="margin-right:10px" placeholder="Search"/>
+            <p:commandButton type="button" value="Logout" icon="ui-icon-extlink" />
+        </f:facet>
+    </p:menubar>
+</h:form>
+	</div>
+	</div>
+	
+	<h:outputText value="AAAAAAAAAAAAAAAAAAAAAAAAAAA" />
+	<p:spinner />
+	<p:button>azerty</p:button>
+	
+<h3>Sample Layout</h3>
+<div class="ui-g">
+    <div class="ui-g-12 ui-md-2">M</div>
+    <div class="ui-g-12 ui-md-10 ui-g-nopad">
+        <div class="ui-g-12">
+            Bar
+        </div>
+        <div class="ui-g-12 ui-g-nopad">
+            <div class="ui-g">
+                <div class="ui-g-12 ui-md-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet, orci nec dictum convallis, ligula mauris vestibulum turpis, nec varius tortor quam at diam. Nullam a viverra nibh. In tincidunt tempor lectus quis vulputate. Pellentesque nec dui aliquam, lobortis est in, lobortis ante</div>
+                <div class="ui-g-12 ui-md-4">Maecenas vel nisi aliquet, vulputate tortor id, laoreet massa. Maecenas mattis tristique bibendum. Suspendisse vel mi dictum, vestibulum lacus quis, pulvinar quam. Proin vulputate, nibh at finibus varius, leo eros lacinia elit, nec blandit odio tellus a justo. Donec nec ex auctor, tristique nulla nec, rutrum sapien.</div>
+                <div class="ui-g-12 ui-md-4">Proin efficitur in leo eget ornare. Nam vestibulum neque sed velit sagittis sodales. Sed scelerisque hendrerit magna a hendrerit. Cras tempor sem at justo pharetra convallis. Curabitur vel sodales purus. Vestibulum interdum facilisis nulla imperdiet suscipit. Quisque lectus felis, condimentum eget hendrerit sit amet.</div>
+            </div>
+ 
+            <div class="ui-g">
+                <div class="ui-g-6 ui-md-3"><p:graphicImage name="demo/images/nature/nature1.jpg" style="width:100%"/></div>  
+                <div class="ui-g-6 ui-md-3"><p:graphicImage name="demo/images/nature/nature2.jpg" style="width:100%"/></div> 
+                <div class="ui-g-6 ui-md-3"><p:graphicImage name="demo/images/nature/nature3.jpg" style="width:100%"/></div>    
+                <div class="ui-g-6 ui-md-3"><p:graphicImage name="demo/images/nature/nature4.jpg" style="width:100%"/></div>      
+            </div>
+ 
+            <div class="ui-g">
+                <div class="ui-g-12 ui-md-6">Phasellus faucibus purus volutpat mauris lacinia sodales. Ut sit amet sapien facilisis, commodo dui non, fringilla tellus. Quisque tempus facilisis nisi sodales finibus. Pellentesque neque orci, ullamcorper vitae ligula quis, dignissim euismod augue.</div>
+                <div class="ui-g-12 ui-md-6">Fusce ullamcorper congue massa, eget ullamcorper nunc lobortis egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices dui eget dolor feugiat dapibus. Aliquam pretium leo et egestas luctus. Nunc facilisis gravida tellus.</div>
+            </div>
+        </div>
+    </div>
+    <div class="ui-g-12">
+        Footer
+    </div>
+</div>
+
 </body> 
 </html>

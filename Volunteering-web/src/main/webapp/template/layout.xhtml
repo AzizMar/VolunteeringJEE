@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui">
+
+	<h:head>
+    <h:outputStylesheet library="css" name="style.css"/>
+	</h:head>
+	
+	<h:body>
+	
+
+		
+	    <div id="header">
+		<ui:insert name="header" >
+		  <ui:include src="/template/commonHeader.xhtml" />
+		</ui:insert>
+	    </div>
+	    
+	    <div id="slider" align="center">
+		<ui:insert name="slider" >
+		  <ui:include src="/template/slider.xhtml" />
+		</ui:insert>
+	    </div>
+	    
+	    <div class="container body-content" id="content">
+	  	<ui:insert name="content" >
+	 	  <ui:include src="/template/commonContent.xhtml" />
+	   	</ui:insert>
+	    </div>
+		<br />
+		<br />
+		<br />
+		<br />
+		
+	    <div id="footer">
+	    	<ui:insert name="footer" >
+	    	  <ui:include src="/template/commonFooter.xhtml" />
+	    	</ui:insert>
+    	    </div>
+	
+	
+	
+	
+	
+	
+	
+	</h:body>
+</html>

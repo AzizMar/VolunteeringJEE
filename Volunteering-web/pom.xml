@@ -18,18 +18,25 @@
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 		</dependency>
+		
+		<dependency>
+    <groupId>net.bootsfaces</groupId>
+    <artifactId>bootsfaces</artifactId>
+    <version>1.2.0</version>
+    <scope>compile</scope>
+</dependency>
 <!-- https://mvnrepository.com/artifact/org.primefaces/primefaces -->
-<dependency>
+<!-- <dependency>
     <groupId>org.primefaces</groupId>
     <artifactId>primefaces</artifactId>
     <version>6.2</version>
 </dependency>
-<!-- https://mvnrepository.com/artifact/org.primefaces.themes/ui-lightness -->
+https://mvnrepository.com/artifact/org.primefaces.themes/ui-lightness
 <dependency>
     <groupId>org.primefaces.themes</groupId>
     <artifactId>bootstrap</artifactId>
     <version>1.0.10</version>
-</dependency>
+</dependency> -->
 
 		<dependency>
 			<groupId>tn.esprit</groupId>
