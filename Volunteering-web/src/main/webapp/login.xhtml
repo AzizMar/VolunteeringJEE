@@ -21,6 +21,23 @@
 	<ui:define name="content">
 		
 <h1> Login Page</h1>	
+
+<h:form id="form">
+	
+	<h:outputLabel value="Login " />
+	
+ <h:inputText value="#{userBean.inputEmail}"></h:inputText>
+ 
+
+	<h:outputLabel value="Password" />
+ <h:inputText value="#{userBean.inputPassword}"></h:inputText>
+
+	
+	<br></br><br></br>
+	
+<h:commandButton action="#{userBean.SignIn()}" value="submit"></h:commandButton>
+
+	</h:form>
 	</ui:define>
 
 </ui:composition>

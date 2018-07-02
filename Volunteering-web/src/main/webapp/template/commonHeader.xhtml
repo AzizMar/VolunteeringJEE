@@ -2,29 +2,53 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"   
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:h="http://java.sun.com/jsf/html">
     <body>
 	    <ui:composition>
+	<ui:param name="staticUserId" value="ac549e29-6de6-4514-8717-ff7844a40a63" />
 	
 <b:navBar brand="Volunteering" brandHref="/Volunteering-web/" inverse="true" position="top" brand-style-class="brand-style">
   <b:navbarLinks>
-    <b:navLink value="Actions" href="#"></b:navLink>
+    <b:navLink value="Actions" action="" href="#"></b:navLink>
+
     <b:navLink value="Campaigns" href="#"></b:navLink>
   </b:navbarLinks>
   
   <b:navbarLinks pull="right"><b:navLink value="    " href="#"></b:navLink></b:navbarLinks>
   <b:navbarLinks pull="right" styleClass="hidden-xs">
-    <b:navLink value="Link" href="#"></b:navLink>
-    <b:dropMenu value="Dropdown" iconAwesome="birthday-cake">
-      <b:navLink value="Action" href="#"></b:navLink>
-      <b:navLink value="Another action" href="#"></b:navLink>
-      <b:navLink value="Something else here" href="#"></b:navLink>
+  
+  <c:choose>
+    <c:when test="#{userBean.role eq 'Ngo' || userBean.role.equals('Volunteer')}">
+  	  <c:choose>
+    	<c:when test="#{userBean.role.equals('Ngo')}">
+    	<b:dropMenu value="+" iconAwesome="heartbeat">
+    	<b:navLink value="Create new Action"  iconAwesome="arrow-alt-circle-right" href="#"></b:navLink>
+     	<b:navLink value="Create new Campaign"  iconAwesome="donate" href="#"></b:navLink>
+    	</b:dropMenu>
+        </c:when>
+        <c:otherwise>
+		</c:otherwise>  
+     </c:choose>
+    
+    <b:image value="https://www.w3schools.com/w3images/avatar2.png" tooltip="User Image" style-class="img-circle" />
+	<b:dropMenu value="">
+      <b:navLink value="Account" href="#"></b:navLink>
+      <b:navLink value="Invitations" href="#"></b:navLink>
+      <b:navLink value="Messages" href="#"></b:navLink>
       <b:navLink></b:navLink>
-      <b:navLink header="Nav header"></b:navLink>
-      <b:navLink value="Separated link" href="#"></b:navLink>
-      <b:navLink value="One more separated link" href="#"></b:navLink>
+      <b:navLink value="LogOut" action="#{userBean.signOut()}" href="" ></b:navLink>
+      <h:commandButton action="#{userBean.logout()}" value="logout"></h:commandButton>
+      
     </b:dropMenu>
+    </c:when>
+    <c:otherwise>
+	  <b:button value="Login" href="/Volunteering-web/login.jsf" look="primary" iconAwesome="user" size="lg" style="padding: 18px 25px ; border-radius:1px"/>
+	  <b:button value="Register" look="success" iconAwesome="plus" size="lg" style="padding: 18px 25px ; border-radius:1px"/>
+    </c:otherwise>     
+</c:choose>
+
   </b:navbarLinks>
 </b:navBar>
 				
