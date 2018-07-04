@@ -1,7 +1,5 @@
 package beans;
 
-import java.io.IOException;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -10,9 +8,11 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.hibernate.validator.constraints.Email;
+
 import entities.Aspnetusers;
 
-@ManagedBean(name="userBean")
+@ManagedBean
 @SessionScoped
 public class UserBean {
 
@@ -25,8 +25,10 @@ public class UserBean {
  private String Role;
 
 private String inputPassword;
+@Email
 private String inputEmail;
-	
+
+private String loginMsg="";
 	
 	public Aspnetusers getUserById(String id) {
 
@@ -92,6 +94,7 @@ private String inputEmail;
 	}
 	
 	
+	
 	public String SignIn() {
 
 		String email = inputEmail;
@@ -101,42 +104,42 @@ private String inputEmail;
 				.request(MediaType.APPLICATION_JSON).get();
 				JsonObject userJson = resp.readEntity(JsonObject.class);
 				Id =userJson.getString("Id");
-	    		Name =userJson.getString("Name");
-	    		Email =userJson.getString("Email");
-	    		Role =userJson.getString("Role");
-	    		
-        if (!(Id=="empty") ) {
-        	
-    		
-    		
-    		System.out.println(Id);
-    		System.out.println(Name);
-    		System.out.println(Email);
-    		System.out.println(PhoneNumber);
-    		System.out.println(Image);
-    		System.out.println(Role);
 
+	    		
+        if (!Id.equals("empty"))  {
+        	
+    		Name =userJson.getString("Name");
+    		Email =userJson.getString("Email");
+    		Role =userJson.getString("Role");
+        	
+        	printUserInfo();
+        	//loginMsg ="Already Logged In";
     		return "/index?faces-redirect=true";
 		}
 		
-		System.out.println(Id);
-		System.out.println(Name);
-		System.out.println(Email);
-		System.out.println(PhoneNumber);
-		System.out.println(Image);
-		System.out.println(Role);
-		
+        printUserInfo();
+    	loginMsg ="Failed Login attempt";
 		System.out.println("Failed login attempt");
-		return "/index?faces-redirect=true";
+		return "login";
 	}
+	
+	
 	
 	public String signOut(){
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-//		
-//		Id ="empty";
-//		Name ="empty";
-//		Email ="empty";
-//		Role ="empty";
+		return "/index?faces-redirect=true";
+	}
+	
+
+	
+	
+	
+	//=====================
+	//====== Test methods
+	//=====================
+	 
+
+	public void printUserInfo() {
 		
 		System.out.println(Id);
 		System.out.println(Name);
@@ -144,23 +147,7 @@ private String inputEmail;
 		System.out.println(PhoneNumber);
 		System.out.println(Image);
 		System.out.println(Role);
-		
-		return "/index?faces-redirect=true";
 	}
-	
-	public void logout() {
-	     FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-
-	     try {
-			FacesContext.getCurrentInstance().getExternalContext().redirect("/index");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	 }
-
-	
 	
 	public void testValues() {
 		
@@ -181,9 +168,9 @@ private String inputEmail;
 	}
 	
 	
-	///////////////////////////////////////
-	//========GETTERS & SETTERS  =======//
-	/////////////////////////////////////
+	//===================================//
+	//======== GETTERS & SETTERS  ======//
+	//=================================//
 	 public String getId() {
 		return Id;
 	}
@@ -246,6 +233,14 @@ private String inputEmail;
 
 	public void setInputEmail(String inputEmail) {
 		this.inputEmail = inputEmail;
+	}
+
+	public String getLoginMsg() {
+		return loginMsg;
+	}
+
+	public void setLoginMsg(String loginMsg) {
+		this.loginMsg = loginMsg;
 	}
 	
 	

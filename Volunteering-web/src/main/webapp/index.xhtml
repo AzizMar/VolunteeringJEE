@@ -25,6 +25,7 @@
         <b:well>
             <label class="glyphicon glyphicon-plus-sign h3"> Recent Actions:</label>
             <hr />
+<h:commandButton action="#{userBean.printUserInfo()}" value="printInfo"></h:commandButton>
 
             <br />
             <br />
@@ -51,6 +52,14 @@
 
         <hr />
         <div class="jumbotron">
+        
+        <h:form id="form">	
+	
+<h:commandButton action="#{userBean.printUserInfo()}" value="printInfo"></h:commandButton>
+
+	</h:form>
+        
+        
             <br />
             <br />
             <br />

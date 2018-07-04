@@ -20,7 +20,98 @@
 
 	<ui:define name="content">
 		
-<h1 style="color:red"> Register Page</h1>	
+		<b:well>
+		<br />
+		<br />
+		<br />
+		<br />
+		
+	    			
+<b:row>
+  <h1><b:label value="Create a new account."  severity="success" text="large-screen='full-width'" large-screen="full-width" /></h1>
+    <h3><b:label value="#{registerBean.registerResult}"  severity="danger" text="large-screen='full-width'" large-screen="full-width" /></h3>
+  
+</b:row>
+
+  
+  <br />
+  <br />
+		
+<b:form id="registerForm" horizontal="true">
+  <b:row>
+    <b:column offsetXs="2" colXs="8">
+      <b:inputText rows="3" placeholder="Username" required="true" label="Name:" value="#{registerBean.name}"  labelColXs="2" colXs="10">
+        <f:facet name="prepend">
+          <b:icon name="user" />
+        </f:facet>
+      </b:inputText>
+      <b:message for="@previous" />
+    </b:column>
+  </b:row>
+
+  <b:row>
+    <b:column offsetXs="2" colXs="8">
+      <b:inputText rows="3" placeholder="Email" required="true" label="E-mail:" value="#{registerBean.email}"  labelColXs="2" colXs="10">
+        <f:facet name="prepend">
+          <b:icon name="user" />
+        </f:facet>
+      </b:inputText>
+      <b:message for="@previous" />
+    </b:column>
+  </b:row>
+ 
+  <b:row>
+    <b:column offsetXs="2" colXs="8">
+      <b:inputSecret rows="3" placeholder="Password" label="Password:" value="#{registerBean.password}" labelColXs="2" colXs="10">
+        <f:facet name="prepend">
+          <b:iconAwesome name="key" />
+        </f:facet>
+      </b:inputSecret>
+      <b:message for="@previous" col-md="8"/>
+    </b:column>
+  </b:row>
+  
+    <b:row>
+    <b:column offsetXs="2" colXs="8">
+      <b:inputSecret rows="3" placeholder="password Confirmation" label="Confirmation:" value="#{registerBean.passwordConfirmation}" labelColXs="2" colXs="10">
+        <f:facet name="prepend">
+          <b:iconAwesome name="key" />
+        </f:facet>
+      </b:inputSecret>
+      <b:message for="@previous" col-md="8" />
+    </b:column>
+  </b:row>
+      <b:row>
+    <b:column offsetXs="3" colXs="6">
+  <b:panelGrid size="xs" columns="4">
+  <b:well>
+    <b:radiobutton value="#{registerBean.accountType}" itemLabel="Volunteer" itemValue="Volunteer" required="true"  />
+    <b:radiobutton value="#{registerBean.accountType}" itemLabel="Ngo" itemValue="Ngo" />
+</b:well>
+  </b:panelGrid>
+    </b:column>
+  </b:row>
+  
+  
+    <b:row>
+    <b:column offsetXs="3" colXs="9">
+      <b:commandButton look="primary" value="Register" action="#{registerBean.register()}" iconAwesome="key" icon-align="left"></b:commandButton>
+
+    </b:column>
+  </b:row>
+  
+  
+
+  
+</b:form>
+		
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		</b:well>
 
 	</ui:define>
 
