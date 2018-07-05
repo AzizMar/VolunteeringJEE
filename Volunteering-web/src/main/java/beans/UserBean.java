@@ -21,7 +21,7 @@ public class UserBean {
  private String Name;
  private String Email;
  private String PhoneNumber ="7589652";
- private String Image = "defaultImg";
+ private String Image = "https://www.w3schools.com/w3images/avatar2.png";
  private String Role;
 
 private String inputPassword;
@@ -127,6 +127,12 @@ private String loginMsg="";
 	
 	public String signOut(){
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+//		try {
+//			FacesContext.getCurrentInstance().getExternalContext().dispatch("index.jsf");
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		return "/index?faces-redirect=true";
 	}
 	

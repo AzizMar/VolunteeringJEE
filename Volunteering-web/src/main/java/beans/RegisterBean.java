@@ -3,6 +3,8 @@ package beans;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -13,25 +15,25 @@ import org.hibernate.validator.constraints.Email;
 @ViewScoped
 public class RegisterBean {
 
+	
+	
 	@ManagedProperty(value="#{userBean}")
 	private UserBean userBean;
-	
-
-
 
 	@Email
 	private String email;
-
+	@Size(min=2, max=26)
+	@NotNull
 	private String name;
-	//@Min(5)
+	@Size(min=2, max=26)
 	private String password;
-	//@Min(5)
+	@Size(min=6, max=26)
 	private String passwordConfirmation;
-	private String accountType;
+	private String accountType="Volunteer";
 	private String registerResult="";
 	
 	
-	public void register(){
+	public String register(){
 		
 		if (password.equals(passwordConfirmation)) {
 			
@@ -42,33 +44,19 @@ public class RegisterBean {
 					System.out.println(registerResult);
 					System.out.println(userBean.getInputEmail());
 					
+					userBean.setInputEmail(email);
+					userBean.setInputPassword(password);
+					userBean.SignIn();
+					
+					return "/index?faces-redirect=true";
 
-					
-					
-//					if (registerResult.equals("RegistrationSuccess !")) {
-//						
-//						System.out.println(userBean.getInputEmail());
-//						userBean.setInputEmail(email);
-//						System.out.println(userBean.getInputEmail());
-//
-//						userBean.setInputPassword(password);
-//						userBean.SignIn();
-//						
-//					}
 		}
 		else {
 			
 			registerResult="Password mismatch";
+			return "/register?faces-redirect=true";
 		}
-		
-		if (registerResult.equals("RegistrationSuccess")) {
-			System.out.println("success");
-			
-//			userBean.setInputEmail(email);
-//			userBean.setInputPassword(password);
-//			userBean.SignIn();
-		}
-		
+	
 	}
 
 

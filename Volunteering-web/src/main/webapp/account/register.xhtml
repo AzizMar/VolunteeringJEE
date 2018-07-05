@@ -14,29 +14,27 @@
 	
 	
 	
-	<ui:composition template="template/layout.xhtml">
+	<ui:composition template="/template/layout.xhtml">
 
-<ui:define name="slider"></ui:define>
+<ui:define name="slider"><br /><br /><br /><br /><br /></ui:define>
 
 	<ui:define name="content">
 		
 		<b:well>
 		<br />
-		<br />
-		<br />
-		<br />
+
 		
-	    			
+	<b:well>    			
 <b:row>
   <h1><b:label value="Create a new account."  severity="success" text="large-screen='full-width'" large-screen="full-width" /></h1>
     <h3><b:label value="#{registerBean.registerResult}"  severity="danger" text="large-screen='full-width'" large-screen="full-width" /></h3>
   
 </b:row>
-
+</b:well>
   
   <br />
   <br />
-		
+		<b:well>
 <b:form id="registerForm" horizontal="true">
   <b:row>
     <b:column offsetXs="2" colXs="8">
@@ -89,6 +87,7 @@
     <b:radiobutton value="#{registerBean.accountType}" itemLabel="Ngo" itemValue="Ngo" />
 </b:well>
   </b:panelGrid>
+  <b:message for="@previous" col-md="8" />
     </b:column>
   </b:row>
   
@@ -104,7 +103,7 @@
 
   
 </b:form>
-		
+		</b:well>
 		<br />
 		<br />
 		<br />
