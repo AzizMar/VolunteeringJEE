@@ -4,12 +4,9 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:ui="http://java.sun.com/jsf/facelets" 
     xmlns:p="http://primefaces.org/ui"
-    xmlns:b="http://bootsfaces.net/ui">
+    xmlns:b="http://bootsfaces.net/ui"
+    xmlns:m="http://code.google.com/p/gmaps4jsf/">
 
-	
-	
-
-	
 	<h:body>
 	
 	
@@ -25,7 +22,21 @@
         <b:well>
             <label class="glyphicon glyphicon-plus-sign h3"> Recent Actions:</label>
             <hr />
-
+         <h:form>
+       <!--  <h:outputText value="#{actionBean.getActionById(2).name}"> -->
+         <ul>
+    		<ui:repeat value="#{actionBean.getRecentActions()}" var="action">
+        <li>
+            	<!-- <h:outputText value="#{action.description}" />
+            	<h:outputText value="#{action.actionId}" /> 
+            	<h:outputText value="#{action.maxVolunteers}" />  -->
+            	<h:link value="#{action.name}" outcome="actionDetails" action="#{requestController.parametersAction()}">
+            	<f:param name="actionId" value="#{action.actionId}"  />
+            	</h:link>
+       		 </li>
+    		</ui:repeat>
+		</ul>
+         </h:form>
             <br />
             <br />
             <br />
@@ -36,7 +47,7 @@
         <b:well>
             <label class="glyphicon glyphicon-euro h3"> Recent Donations:</label>
             <hr/>
-
+		
             <br />
             <br />
             <br />
@@ -47,8 +58,21 @@
 
     <b:column col-md="9">
     <b:well>
-        <h3 align="center">Google Map Below</h3>
-
+        <h3 align="center">Google Map Below</h3>	
+			<script type="text/javascript">
+                    $.getJSON('#actionBean.getRecentActions', function(data) {
+                    var items = [];
+                     $.each(data, function(key, val) {
+                     items.push('<li id="' + key + '">' + val + '</li>');
+                    });
+                    $('<ul/>', {
+                 'class': 'my-new-list',
+                 html: items.join('')
+            }).appendTo("#jsondata");
+        });
+         
+        </script>
+		
         <hr />
         <div class="jumbotron">
             <br />
