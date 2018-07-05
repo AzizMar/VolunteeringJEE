@@ -20,24 +20,48 @@
 
 	<ui:define name="content">
 		
-<h1> Login Page</h1>	
+		<b:well>
+		<br />
+		<br />
+		<br />
+		<br />
+		
+	    			
+<b:row>
+  <h1><b:label value="ERROR"  severity="danger" text="large-screen='full-width'" large-screen="full-width" /></h1>
+</b:row>
+		<br />
+		<br />
+		<br />
+		<br />
+<b:row>
+  <h1><b:label value="Operation ended with ERROR"   text="large-screen='full-width'" large-screen="full-width" /></h1>
+</b:row>
+  
+  <br />
+  <br />
+		
 
-<h:form id="form">
-	
-	<h:outputLabel value="Login " />
-	
- <h:inputText value="#{userBean.inputEmail}"></h:inputText>
- 
+		
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+				<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		</b:well>
 
-	<h:outputLabel value="Password" />
- <h:inputText value="#{userBean.inputPassword}"></h:inputText>
-
-	
-	<br></br><br></br>
-	
-<h:commandButton action="#{userBean.SignIn()}" value="submit"></h:commandButton>
-
-	</h:form>
 	</ui:define>
 
 </ui:composition>

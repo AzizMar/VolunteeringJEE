@@ -6,30 +6,47 @@
     xmlns:p="http://primefaces.org/ui"
     xmlns:b="http://bootsfaces.net/ui">
 
-	
-	
-
-	
 	<h:body>
 
 		
-	<ui:composition template="template/layout.xhtml">
+	<ui:composition template="/template/layout.xhtml">
 
 <ui:define name="slider"></ui:define>
 
 	<ui:define name="content">
-		
-<h1> Login Page</h1>	
+		<b:well>
+		<b:row>
+    <b:column col-md="8">
+    <h1 align="center"><label>Action Details</label> </h1>	
+    
+    <b:well>
 
 <h:form id="form">
 	
 	
- <h:outputText value=">#{requestController.param1}" />
+ <h:outputText value="#{voluntaryDetailsBean.actionId}" />
   
 	<br></br><br></br>
-
-
 	</h:form>
+		</b:well>
+	
+	    </b:column>
+
+    <b:column col-md="4">
+        <h1 align="center"><label>Invitations</label> </h1>	
+    
+	<b:well>
+	
+	Invitations...
+	
+	</b:well>
+	
+	</b:column>
+	
+	
+	
+	</b:row>
+	</b:well>
 	</ui:define>
 
 </ui:composition>

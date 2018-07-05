@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" 
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:b="http://bootsfaces.net/ui">
+	
+
+<h:body>
+	
+	
+	
+	<ui:composition template="/template/layout.xhtml">
+
+<ui:define name="slider"></ui:define>
+
+	<ui:define name="content">
+		
+		<b:well>
+		
+	<b:label value="Debug Id"></b:label>
+	<b:label value="#{profileBean.id}"></b:label>
+
+
+
+<b:well>
+
+<b:row>
+<!-- Profile INFO Column -->
+
+<b:column col-md="4">
+    <h2 align="center"><b:label severity="primary" value="#{profileBean.name} Profile" ></b:label></h2>
+
+<b:well>
+<b:row>
+</b:row>
+<b:row>
+   <p align="center"> <b:image  value="#{profileBean.image}" tooltip="User Image" style="border-radius: 10%; width: 80%; padding-top: 5px;" /></p>
+</b:row>
+<b:row>
+
+    <h4 align="center"><b:iconAwesome name="user" /><b:label  severity="default" value="#{profileBean.name} " ></b:label></h4>
+    <h4 align="center"><b:iconAwesome name="envelope" /><b:label severity="default" value="#{profileBean.email} " ></b:label></h4>
+    <h4 align="center"><b:iconAwesome name="phone" /><b:label severity="default" value="#{profileBean.phoneNumber} " ></b:label></h4>
+    <h4 align="center"><b:iconAwesome name="cog" /><b:label severity="default" value="#{profileBean.role} " ></b:label></h4>
+
+
+</b:row>
+</b:well>
+</b:column>
+
+<b:column col-md="8">
+
+<!-- CAMPAIGNS Column -->
+<b:column col-md="4">
+    <h2 align="center"><b:label severity="primary" value="ACTIONS" ></b:label></h2>
+
+<b:well>
+
+</b:well>
+
+</b:column>
+
+<!-- ACTIONS Column -->
+<b:column col-md="4">
+    <h2 align="center"><b:label severity="primary" value="CAMPAIGNS" ></b:label></h2>
+
+<b:well>
+
+</b:well>
+</b:column>
+
+
+</b:column>
+
+
+</b:row>
+
+
+
+
+</b:well>    
+    
+    
+    
+
+
+		</b:well>
+
+	</ui:define>
+
+</ui:composition>
+
+	
+	</h:body>
+</html>

@@ -18,6 +18,11 @@ body {
 }
 
 
+.navbar-inverse {
+    background-color: rgba(9, 19, 43, 0.84) !important ;
+    border-color: #080808;
+}
+
 .navbar-inverse .navbar-brand {
     color: #ff7800 !important ;
     font-family: fantasy;

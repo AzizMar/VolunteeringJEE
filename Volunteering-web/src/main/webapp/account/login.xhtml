@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" 
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:b="http://bootsfaces.net/ui">
+
+	
+	
+
+	
+	<h:body>
+	
+	
+	
+	<ui:composition template="/template/layout.xhtml">
+
+<ui:define name="slider"></ui:define>
+
+	<ui:define name="content">
+		
+		<b:well>
+		<br />
+		<br />
+		<br />
+		<br />
+		
+	    			
+<b:row>
+  <h1><b:label value="Authentication"  severity="warning" text="large-screen='full-width'" large-screen="full-width" /></h1>
+  <h4><b:label value="#{userBean.loginMsg}"  severity="danger" text="large-screen='full-width'" large-screen="full-width" /></h4>  
+</b:row>
+  
+  <br />
+  <br />
+		
+<b:form id="loginForm" horizontal="true">
+  <b:row>
+    <b:column offsetXs="2" colXs="8">
+	
+      <b:inputText rows="3" placeholder="Username" required="true" label="E-mail:" value="#{userBean.inputEmail}"  labelColXs="2" colXs="10">
+      
+        <f:facet name="prepend">
+          <b:icon name="user" />
+        </f:facet>
+      </b:inputText>
+      <b:message for="@previous"  col-md="10" offset="2"/>
+    </b:column>
+  </b:row>
+ <br />
+  <b:row>
+    <b:column offsetXs="2" colXs="8">
+      <b:inputSecret rows="3" placeholder="Password" label="Password:" value="#{userBean.inputPassword}" labelColXs="2" colXs="10">
+        <f:facet name="prepend">
+          <b:iconAwesome name="key" />
+        </f:facet>
+      </b:inputSecret>
+      <b:message col-md="10" offset="2" for="@previous"/>
+    </b:column>
+  </b:row>
+  <br/>
+    <b:row>
+    <b:column offsetXs="3" colXs="9">
+      <b:commandButton look="primary" value="Login" action="#{userBean.SignIn()}" iconAwesome="key" icon-align="left"></b:commandButton>
+
+    </b:column>
+  </b:row>
+  
+  
+</b:form>
+		
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		</b:well>
+
+	</ui:define>
+
+</ui:composition>
+
+	
+	</h:body>
+</html>

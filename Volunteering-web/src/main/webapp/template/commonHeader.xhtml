@@ -20,10 +20,10 @@
   <b:navbarLinks pull="right" styleClass="hidden-xs">
   
   <c:choose>
-    <c:when test="#{userBean.role eq 'Ngo' || userBean.role.equals('Volunteer')}">
+    <c:when test="#{userBean.role eq 'Ngo' || userBean.role.equals('Volunteer') || userBean.role.equals('Administrator')}">
   	  <c:choose>
     	<c:when test="#{userBean.role.equals('Ngo')}">
-    	<b:dropMenu value="+" iconAwesome="heartbeat">
+    	<b:dropMenu value="+" iconAwesome="heartbeat"> 
     	<b:navLink value="Create new Action"  iconAwesome="arrow-alt-circle-right" href="#"></b:navLink>
      	<b:navLink value="Create new Campaign"  iconAwesome="donate" href="#"></b:navLink>
     	</b:dropMenu>
@@ -31,27 +31,29 @@
         <c:otherwise>
 		</c:otherwise>  
      </c:choose>
-    
-    <b:image value="https://www.w3schools.com/w3images/avatar2.png" tooltip="User Image" style-class="img-circle" />
+     
+    <b:image value="#{userBean.image}" tooltip="User Image" style-class="img-circle" />
 	<b:dropMenu value="">
+	  <b:label value="- - -#{userBean.email}- - -"></b:label>
       <b:navLink value="Account" href="#"></b:navLink>
+      <b:navLink value="My Profile" href="/Volunteering-web/account/profile.jsf?id=#{userBean.id}"></b:navLink>
       <b:navLink value="Invitations" href="#"></b:navLink>
       <b:navLink value="Messages" href="#"></b:navLink>
       <b:navLink></b:navLink>
-      <b:navLink value="LogOut" action="#{userBean.signOut()}" href="" ></b:navLink>
-      <h:commandButton action="#{userBean.logout()}" value="logout"></h:commandButton>
-      
+     <h:form id="logoutForm">	
+<b:commandButton action="#{userBean.signOut()}" look="warning" iconAwesome="key" icon-align="left" value="SignOut" labelColXs="2" colXs="10"></b:commandButton>
+	</h:form>
     </b:dropMenu>
     </c:when>
     <c:otherwise>
-	  <b:button value="Login" href="/Volunteering-web/login.jsf" look="primary" iconAwesome="user" size="lg" style="padding: 18px 25px ; border-radius:1px"/>
-	  <b:button value="Register" look="success" iconAwesome="plus" size="lg" style="padding: 18px 25px ; border-radius:1px"/>
+	  <b:button value="Login" href="/Volunteering-web/account/login.jsf" look="primary" iconAwesome="user" size="lg" style="padding: 18px 25px ; border-radius:1px"/>
+	  <b:button value="Register" href="/Volunteering-web/account/register.jsf" look="success" iconAwesome="plus" size="lg" style="padding: 18px 25px ; border-radius:1px"/>
     </c:otherwise>     
 </c:choose>
 
   </b:navbarLinks>
 </b:navBar>
 				
-	    </ui:composition>
+</ui:composition>
     </body>
 </html>
